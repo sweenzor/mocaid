@@ -1,4 +1,5 @@
 import time
+
 from blessings import Terminal
 
 t = Terminal()
@@ -10,14 +11,6 @@ with t.location(0, t.height - 1):
     print 'This is at the bottom.'
 
 print t.move_down + 'hi'
-time.sleep(1)
-print t.move_down + 'hi'
-time.sleep(1)
-print t.move_down + 'hi'
-time.sleep(1)
-print t.move_down + 'hi'
-time.sleep(1)
-print t.move_down + 'hi'
-time.sleep(1)
-print t.move_down + 'hi'
 time.sleep(3)
+
+
