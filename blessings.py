@@ -261,17 +261,17 @@ class Terminal(object):
 
         """
         # Save position and move to the requested column, row, or both:
-        self.stream.write(self.save, 'iso8859-1')
+        self.stream.write(self.save)
         if xloc is not None and yloc is not None:
-            self.stream.write(self.move(yloc, xloc), 'iso8859-1')
+            self.stream.write(self.move(yloc, xloc))
         elif xloc is not None:
-            self.stream.write(self.move_x(xloc), 'iso8859-1')
+            self.stream.write(self.move_x(xloc))
         elif yloc is not None:
-            self.stream.write(self.move_y(yloc), 'iso8859-1')
+            self.stream.write(self.move_y(yloc))
         yield
 
         # Restore original cursor position:
-        self.stream.write(self.restore, 'iso8859-1')
+        self.stream.write(self.restore)
 
     @contextlib.contextmanager
     def fullscreen(self):
@@ -279,9 +279,9 @@ class Terminal(object):
         Return a context manager that enters fullscreen mode while inside it
         and restores normal mode on leaving.
         """
-        self.stream.write(self.enter_fullscreen, 'iso8859-1')
+        self.stream.write(self.enter_fullscreen)
         yield
-        self.stream.write(self.exit_fullscreen, 'iso8859-1')
+        self.stream.write(self.exit_fullscreen)
 
     @contextlib.contextmanager
     def hidden_cursor(self):
@@ -289,9 +289,9 @@ class Terminal(object):
         Return a context manager that hides the cursor while inside it and
         makes it visible on leaving.
         """
-        self.stream.write(self.hide_cursor, 'iso8859-1')
+        self.stream.write(self.hide_cursor)
         yield
-        self.stream.write(self.normal_cursor, 'iso8859-1')
+        self.stream.write(self.normal_cursor)
 
     @property
     def color(self):
